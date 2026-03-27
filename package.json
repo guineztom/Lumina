@@ -1,0 +1,17 @@
+{
+  "name": "lumina-ai",
+  "version": "1.0.0",
+  "description": "Lumina AI — Annuaire d'outils IA avec Keystatic",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "npx keystatic dev",
+    "keystatic": "keystatic dev"
+  },
+  "dependencies": {
+    "@keystatic/core": "latest",
+    "@keystatic/next": "latest"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
