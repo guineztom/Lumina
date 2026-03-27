@@ -1,0 +1,34 @@
+{
+  "id": "playground-ai",
+  "name": "Playground AI",
+  "tagline": "Créez des images IA réalistes et artistiques — 500 générations gratuites par jour.",
+  "category": "image-gen",
+  "sector": [
+    "image-design"
+  ],
+  "priceDetails": "Gratuit (500 img/jour) / 15 $/mois (Pro) / 45 $/mois (Turbo)",
+  "priceType": "Freemium",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/playgroundai.com",
+  "url": "#",
+  "tags": [
+    "Génération image",
+    "Gratuit généreux",
+    "Art IA"
+  ],
+  "description": "Playground AI est l'un des générateurs d'images IA les plus accessibles avec une offre gratuite très généreuse (500 images par jour). Il supporte plusieurs modèles et est optimisé pour les portraits et les illustrations stylisées.",
+  "features": [
+    "500 générations gratuites par jour",
+    "Éditeur d'images avancé (inpainting, outpainting)",
+    "Styles variés (réaliste, anime, artistique, 3D...)",
+    "Canvas collaboratif",
+    "Bibliothèque de prompts communautaires"
+  ],
+  "useCases": [
+    "Curieux qui veut explorer la génération d'images IA sans payer",
+    "Artiste ou illustrateur qui explore de nouveaux styles",
+    "Marketeur qui génère des visuels pour ses campagnes"
+  ]
+}

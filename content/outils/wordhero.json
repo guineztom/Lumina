@@ -1,0 +1,34 @@
+{
+  "id": "wordhero",
+  "name": "WordHero",
+  "tagline": "Générez du contenu marketing illimité à un tarif imbattable.",
+  "category": "copywriting",
+  "sector": [
+    "business-marketing"
+  ],
+  "priceDetails": "49 $/mois ou 89 $ à vie (offres LTD régulières)",
+  "priceType": "Payant",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/wordhero.co",
+  "url": "#",
+  "tags": [
+    "Copywriting",
+    "Illimité",
+    "Rapport qualité-prix"
+  ],
+  "description": "WordHero se distingue par son modèle de prix : des offres à vie régulièrement disponibles pour un accès illimité. Plus de 60 outils d'écriture pour créer des posts sociaux, des descriptions produits, des titres, des scripts vidéo et plus encore.",
+  "features": [
+    "60+ outils d'écriture marketing",
+    "Génération de contenu illimitée",
+    "Éditeur long-form intégré",
+    "Support de 100+ langues",
+    "Mode brainstorming pour idées et angles"
+  ],
+  "useCases": [
+    "Solopreneur qui veut un outil de rédaction sans abonnement mensuel",
+    "Marketeur qui génère de nombreux assets texte régulièrement",
+    "Entrepreneur qui teste différents messages pour son marché"
+  ]
+}

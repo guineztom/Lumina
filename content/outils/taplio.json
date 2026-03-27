@@ -1,0 +1,34 @@
+{
+  "id": "taplio",
+  "name": "Taplio",
+  "tagline": "Développez votre audience et votre business sur LinkedIn avec l'IA.",
+  "category": "social-media",
+  "sector": [
+    "reseaux-sociaux"
+  ],
+  "priceDetails": "39 $/mois (Essential) / 65 $/mois (Pro) — essai gratuit 7 jours",
+  "priceType": "Payant",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/taplio.com",
+  "url": "#",
+  "tags": [
+    "LinkedIn",
+    "Personal branding",
+    "Croissance"
+  ],
+  "description": "Taplio est l'outil de référence pour développer son personal branding sur LinkedIn. Il génère des idées de posts, rédige du contenu, analyse les performances et facilite l'engagement avec votre réseau. Très utilisé par les coachs, consultants et créateurs de contenu B2B.",
+  "features": [
+    "Génération de posts LinkedIn par IA",
+    "Bibliothèque de posts viraux pour s'inspirer",
+    "Planificateur et scheduling",
+    "CRM LinkedIn pour gérer ses contacts",
+    "Analyses de croissance détaillées"
+  ],
+  "useCases": [
+    "Consultant ou coach qui veut construire son autorité sur LinkedIn",
+    "Freelance qui cherche des clients via LinkedIn",
+    "Entrepreneur qui veut documenter et partager son parcours"
+  ]
+}

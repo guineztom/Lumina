@@ -1,0 +1,34 @@
+{
+  "id": "remove-bg",
+  "name": "Remove.bg",
+  "tagline": "Supprimez l'arrière-plan de n'importe quelle image en 5 secondes.",
+  "category": "image-editing",
+  "sector": [
+    "image-design"
+  ],
+  "priceDetails": "Gratuit (aperçu basse résolution) / À partir de 1,20 $/image HD (packs crédits)",
+  "priceType": "Freemium",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/remove.bg",
+  "url": "#",
+  "tags": [
+    "Détourage",
+    "Fond blanc",
+    "Photo produit"
+  ],
+  "description": "Remove.bg est la référence mondiale pour le détourage automatique. En un upload, l'IA isole parfaitement le sujet — même les cheveux, la fourrure ou les éléments complexes — et supprime l'arrière-plan. Utilisé par des millions d'e-commerçants et marketeurs.",
+  "features": [
+    "Détourage automatique en 5 secondes",
+    "Précision sur les éléments fins (cheveux, transparences)",
+    "Téléchargement PNG sans fond",
+    "API disponible pour automatisation",
+    "Intégration Canva, Photoshop, Figma"
+  ],
+  "useCases": [
+    "Vendeur en ligne qui veut des photos produits sur fond blanc",
+    "Photographe qui gagne du temps sur le détourage",
+    "Marketeur qui crée des compositions visuelles rapidement"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "neuronwriter",
+  "name": "NeuronWriter",
+  "tagline": "L'outil SEO qui vous dit exactement quoi écrire pour ranker.",
+  "category": "seo-writing",
+  "sector": [
+    "redaction-seo"
+  ],
+  "priceDetails": "À partir de 19 $/mois (Bronze) — Bronze / Silver / Gold / Platinum",
+  "priceType": "Payant",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/neuronwriter.com",
+  "url": "#",
+  "tags": [
+    "SEO",
+    "Analyse concurrents",
+    "Optimisation"
+  ],
+  "description": "NeuronWriter analyse les 30 premiers résultats Google sur votre mot-clé et vous indique précisément quels termes sémantiques inclure, quelle longueur cibler, quelle structure adopter. L'IA rédige ensuite un contenu aligné sur ces recommandations.",
+  "features": [
+    "Analyse sémantique des concurrents top 30",
+    "Score d'optimisation en temps réel",
+    "Rédaction assistée par IA",
+    "Gestion de projets et briefs SEO",
+    "Intégration WordPress et Google Search Console"
+  ],
+  "useCases": [
+    "Blogueur ambitieux qui veut dépasser ses concurrents sur Google",
+    "Freelance SEO qui produit des contenus à fort potentiel",
+    "Créateur de site de niche qui construit son autorité"
+  ]
+}

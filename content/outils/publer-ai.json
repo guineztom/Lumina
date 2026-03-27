@@ -1,0 +1,34 @@
+{
+  "id": "publer-ai",
+  "name": "Publer AI",
+  "tagline": "Planifiez et automatisez toute votre présence social media.",
+  "category": "social-media",
+  "sector": [
+    "reseaux-sociaux"
+  ],
+  "priceDetails": "Gratuit (3 comptes) / 12 $/mois (Professional) / 21 $/mois (Business)",
+  "priceType": "Freemium",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/publer.io",
+  "url": "#",
+  "tags": [
+    "Planification",
+    "Automation",
+    "Multi-comptes"
+  ],
+  "description": "Publer est un planificateur social media complet avec fonctionnalités IA intégrées : génération de captions, suggestions de hashtags, analyse des meilleurs horaires de publication. Compatible avec Instagram, Facebook, LinkedIn, Twitter, TikTok, Pinterest et Google My Business.",
+  "features": [
+    "Planification sur 8 plateformes simultanément",
+    "Génération de captions par IA",
+    "Recyclage automatique des meilleurs posts",
+    "Collaboration en équipe",
+    "Analyse des performances"
+  ],
+  "useCases": [
+    "Solopreneur qui veut automatiser sa présence sur tous les réseaux",
+    "Créateur de contenu qui recycle intelligemment son contenu",
+    "Indépendant qui programme ses posts à l'avance"
+  ]
+}

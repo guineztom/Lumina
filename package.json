@@ -1,0 +1,17 @@
+{
+  "name": "lumina-ai",
+  "version": "1.0.0",
+  "description": "Lumina AI — Annuaire d'outils IA pour indépendants",
+  "scripts": {
+    "build": "tinacms build && node build.js",
+    "dev": "tinacms dev -c \"node build.js\"",
+    "tina": "tinacms dev"
+  },
+  "dependencies": {
+    "tinacms": "latest",
+    "@tinacms/cli": "latest"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

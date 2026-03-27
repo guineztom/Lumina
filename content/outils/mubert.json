@@ -1,0 +1,34 @@
+{
+  "id": "mubert",
+  "name": "Mubert",
+  "tagline": "Générez de la musique de fond libre de droits en quelques secondes.",
+  "category": "audio",
+  "sector": [
+    "video-audio"
+  ],
+  "priceDetails": "Gratuit (usage personnel) / 14 $/mois (Creator) / 39 $/mois (Pro)",
+  "priceType": "Freemium",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/mubert.com",
+  "url": "#",
+  "tags": [
+    "Musique IA",
+    "Libre de droits",
+    "Fond sonore"
+  ],
+  "description": "Mubert génère de la musique d'ambiance unique et libre de droits sur demande. Vous spécifiez l'ambiance, le tempo, la durée et le genre — l'IA compose une piste inédite. Idéal pour les YouTubeurs et podcasteurs qui veulent éviter les problèmes de copyright.",
+  "features": [
+    "Génération de musique par ambiance, genre et durée",
+    "Droits commerciaux inclus (offres payantes)",
+    "API pour intégration dans des applications",
+    "Styles variés (lo-fi, ambient, électronique, acoustique...)",
+    "Pistes sans coupures (parfaites pour le loop)"
+  ],
+  "useCases": [
+    "YouTubeur qui cherche une musique de fond sans copyright",
+    "Podcasteur qui veut un générique ou jingle personnalisé",
+    "Créateur de vidéo qui veut de l'ambiance sonore"
+  ]
+}

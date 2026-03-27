@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Bloquer l'interface admin aux robots
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://lumina-ai.fr/sitemap.xml

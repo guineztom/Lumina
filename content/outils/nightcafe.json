@@ -1,0 +1,34 @@
+{
+  "id": "nightcafe",
+  "name": "NightCafe",
+  "tagline": "Créez de l'art IA et rejoignez une communauté de créateurs.",
+  "category": "image-gen",
+  "sector": [
+    "image-design"
+  ],
+  "priceDetails": "Gratuit (5 crédits/jour) / À partir de 10 $/mois",
+  "priceType": "Freemium",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/nightcafe.studio",
+  "url": "#",
+  "tags": [
+    "Art IA",
+    "Communauté",
+    "Génération créative"
+  ],
+  "description": "NightCafe est à la fois un générateur d'art IA et une communauté de créateurs. Il supporte de nombreux modèles (DALL-E, Stable Diffusion, SDXL) et offre des styles artistiques très variés. Ses challenges créatifs quotidiens en font un endroit idéal pour apprendre et s'inspirer.",
+  "features": [
+    "Accès à plusieurs modèles IA (SDXL, DALL-E, etc.)",
+    "Styles artistiques variés (peinture, photo, illustration)",
+    "Communauté et challenges créatifs quotidiens",
+    "Impression sur demande (posters, t-shirts)",
+    "Crédits offerts chaque jour"
+  ],
+  "useCases": [
+    "Artiste qui explore de nouveaux styles visuels",
+    "Particulier qui veut créer des œuvres décoratives personnalisées",
+    "Créateur qui veut des visuels uniques pour ses projets"
+  ]
+}

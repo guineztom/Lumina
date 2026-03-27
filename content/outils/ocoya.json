@@ -1,0 +1,34 @@
+{
+  "id": "ocoya",
+  "name": "Ocoya",
+  "tagline": "Planifiez et générez vos posts réseaux sociaux avec l'IA.",
+  "category": "social-media",
+  "sector": [
+    "reseaux-sociaux"
+  ],
+  "priceDetails": "À partir de 15 $/mois (Bronze) — jusqu'à 99 $/mois (Diamond)",
+  "priceType": "Payant",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/ocoya.com",
+  "url": "#",
+  "tags": [
+    "Planification",
+    "Multi-plateformes",
+    "Contenu social"
+  ],
+  "description": "Ocoya combine un générateur de contenu IA avec un planificateur de réseaux sociaux et un éditeur de visuels. Une plateforme tout-en-un pour créer, programmer et publier sur Instagram, LinkedIn, Twitter, Facebook et TikTok depuis un seul endroit.",
+  "features": [
+    "Génération de captions IA en 26 langues",
+    "Planificateur de publications multi-plateformes",
+    "Éditeur de visuels intégré (type Canva)",
+    "Bibliothèque de templates prêts à l'emploi",
+    "Analyses de performance intégrées"
+  ],
+  "useCases": [
+    "Solopreneur qui gère ses réseaux sans community manager",
+    "Coach qui veut maintenir une présence quotidienne sur LinkedIn",
+    "Boutique en ligne qui automatise ses posts produits"
+  ]
+}

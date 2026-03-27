@@ -1,0 +1,34 @@
+{
+  "id": "speechify",
+  "name": "Speechify",
+  "tagline": "Écoutez n'importe quel texte lu à voix haute par une IA ultra-réaliste.",
+  "category": "audio",
+  "sector": [
+    "video-audio"
+  ],
+  "priceDetails": "Gratuit / 139 $/an (Premium) / 199 $/an (AI Studio)",
+  "priceType": "Freemium",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/speechify.com",
+  "url": "#",
+  "tags": [
+    "Text to speech",
+    "Productivité",
+    "Voix-off"
+  ],
+  "description": "Speechify convertit n'importe quel document, PDF, email ou page web en audio lu par une voix IA naturelle. Disponible sur mobile et desktop, il permet de consommer du contenu en déplacement, d'accélérer sa formation ou de générer des voix-off pour ses vidéos.",
+  "features": [
+    "Lecture de PDFs, emails, pages web, Google Docs",
+    "Voix IA ultraréalistes (dont voix de célébrités)",
+    "Vitesse réglable jusqu'à 4,5x",
+    "Application mobile iOS et Android",
+    "Extension Chrome pour lire les pages web"
+  ],
+  "useCases": [
+    "Entrepreneur qui se forme en écoutant des ressources pendant ses déplacements",
+    "Créateur de contenu qui génère des voix-off pour ses vidéos",
+    "Personne dyslexique ou qui préfère l'audio au texte"
+  ]
+}

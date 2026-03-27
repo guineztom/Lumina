@@ -1,0 +1,34 @@
+{
+  "id": "nichesss",
+  "name": "Nichesss",
+  "tagline": "Trouvez des idées de business rentables et générez du contenu en un clic.",
+  "category": "business-ideas",
+  "sector": [
+    "business-marketing"
+  ],
+  "priceDetails": "89 $/mois ou offres LTD ponctuelles",
+  "priceType": "Payant",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/nichesss.com",
+  "url": "#",
+  "tags": [
+    "Idées business",
+    "Niche",
+    "Brainstorming"
+  ],
+  "description": "Nichesss aide les entrepreneurs à identifier des niches de marché rentables et à générer rapidement tous les assets nécessaires : nom de marque, slogan, description, posts sociaux, emails. Un outil de brainstorming business très pratique pour les side-projecteurs.",
+  "features": [
+    "Générateur d'idées de business par niche",
+    "Analyse de la demande et de la concurrence",
+    "Génération de nom de marque et slogan",
+    "Templates marketing complets (posts, emails, ads)",
+    "Mode brainstorming illimité"
+  ],
+  "useCases": [
+    "Entrepreneur qui cherche une niche rentable à exploiter",
+    "Side-projecteur qui veut tester rapidement une idée",
+    "Créateur de contenu qui cherche un positionnement différenciant"
+  ]
+}

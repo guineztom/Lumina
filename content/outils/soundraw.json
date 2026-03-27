@@ -1,0 +1,34 @@
+{
+  "id": "soundraw",
+  "name": "Soundraw",
+  "tagline": "Composez votre propre musique IA, personnalisable segment par segment.",
+  "category": "audio",
+  "sector": [
+    "video-audio"
+  ],
+  "priceDetails": "16,99 $/mois (Creator) / 29,99 $/mois (Artist, droits complets)",
+  "priceType": "Payant",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/soundraw.io",
+  "url": "#",
+  "tags": [
+    "Musique IA",
+    "Composition",
+    "Personnalisable"
+  ],
+  "description": "Soundraw génère de la musique originale que vous pouvez personnaliser segment par segment : montez ou baissez l'intensité d'un passage, changez les instruments, ajustez le rythme. Un niveau de contrôle créatif rare parmi les outils de musique IA.",
+  "features": [
+    "Personnalisation segment par segment",
+    "Genres variés (pop, cinematic, hip-hop, jazz...)",
+    "Ajustement de l'énergie, de l'humeur et des instruments",
+    "Téléchargement MP3/WAV",
+    "Droits commerciaux inclus"
+  ],
+  "useCases": [
+    "Créateur vidéo qui veut une musique qui suit le rythme de ses coupes",
+    "Podcasteur ou streamer qui veut une signature sonore unique",
+    "Indépendant qui crée une ambiance sonore pour ses contenus"
+  ]
+}

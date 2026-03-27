@@ -1,0 +1,34 @@
+{
+  "id": "voicemod-ai",
+  "name": "Voicemod AI",
+  "tagline": "Modifiez votre voix en temps réel et créez votre persona sonore.",
+  "category": "audio",
+  "sector": [
+    "video-audio"
+  ],
+  "priceDetails": "Gratuit (basique) / 36 $/an (Pro) / 60 $/an (AI voices)",
+  "priceType": "Freemium",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/voicemod.net",
+  "url": "#",
+  "tags": [
+    "Voix IA",
+    "Streaming",
+    "Modification en temps réel"
+  ],
+  "description": "Voicemod permet de modifier sa voix en temps réel lors d'appels, streams ou enregistrements. Il propose des centaines d'effets et des voix IA personnalisables. Très utilisé par les streamers, gamers et créateurs de contenus pour créer un univers sonore distinctif.",
+  "features": [
+    "Modification de voix en temps réel",
+    "Création de voix IA personnalisées",
+    "Soundboard pour effets sonores",
+    "Compatible Twitch, Discord, OBS, Teams, Zoom",
+    "Bibliothèque de voix et effets"
+  ],
+  "useCases": [
+    "Streamer ou YouTubeur qui veut un personnage vocal reconnaissable",
+    "Podcasteur fictif ou créateur de contenu narratif",
+    "Gamer qui veut personnaliser son expérience sonore"
+  ]
+}

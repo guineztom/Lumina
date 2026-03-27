@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ── SEO dynamique : mis à jour par updateSEO() à chaque navigation ── -->
+  <title id="seo-title">Lumina AI — Découvrez, comparez et choisissez les meilleurs outils IA</title>
+  <meta id="seo-desc" name="description" content="Lumina AI est l'annuaire de référence des outils IA pour particuliers, indépendants, coachs et micro-entrepreneurs. Fiches détaillées, comparatifs et guides pratiques." />
+  <link id="seo-canonical" rel="canonical" href="https://lumina-ai.fr/" />
+
+  <!-- ── Open Graph (partage réseaux sociaux) ── -->
+  <meta id="og-title" property="og:title" content="Lumina AI — Les meilleurs outils IA pour indépendants" />
+  <meta id="og-desc" property="og:description" content="Lumina AI est l'annuaire de référence des outils IA pour particuliers, indépendants, coachs et micro-entrepreneurs." />
+  <meta id="og-url" property="og:url" content="https://lumina-ai.fr/" />
+  <meta id="og-image" property="og:image" content="https://lumina-ai.fr/assets/og-default.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Lumina AI" />
+
+  <!-- ── Twitter Card ── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta id="tw-title" name="twitter:title" content="Lumina AI — Les meilleurs outils IA pour indépendants" />
+  <meta id="tw-desc" name="twitter:description" content="Lumina AI est l'annuaire de référence des outils IA pour particuliers, indépendants, coachs et micro-entrepreneurs." />
+  <meta id="tw-image" name="twitter:image" content="https://lumina-ai.fr/assets/og-default.jpg" />
+
+  <!-- ── Indexation ── -->
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Lumina AI" />
+
+  <!-- ── Fonts ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+<!-- ============================================================
+  NAVIGATION
+============================================================ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <button class="nav-logo" onclick="navigate('home')">Lumina <em>AI</em></button>
+    <div class="nav-links">
+      <button class="nav-link" id="nl-home" onclick="navigate('home')">Accueil</button>
+      <button class="nav-link" id="nl-outils" onclick="navigate('outils')">Outils IA</button>
+      <button class="nav-link" id="nl-blog" onclick="navigate('blog')">Blog</button>
+      <button class="nav-link" id="nl-contact" onclick="navigate('contact')">Contact</button>
+    </div>
+    <div class="nav-actions">
+      <button class="btn btn-ghost btn-sm" onclick="navigate('soumettre')">Soumettre un outil</button>
+      <button class="btn btn-primary btn-sm" onclick="navigate('newsletter')">Newsletter</button>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path id="ham-open" d="M4 6h16M4 12h16M4 18h16"/>
+        <path id="ham-close" d="M6 18L18 6M6 6l12 12" style="display:none"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-nav-link" onclick="navigate('home'); toggleMenu()">Accueil</button>
+  <button class="mobile-nav-link" onclick="navigate('outils'); toggleMenu()">Outils IA</button>
+  <button class="mobile-nav-link" onclick="navigate('blog'); toggleMenu()">Blog</button>
+  <button class="mobile-nav-link" onclick="navigate('contact'); toggleMenu()">Contact</button>
+  <div style="margin-top:16px">
+    <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="navigate('soumettre'); toggleMenu()">Soumettre un outil</button>
+  </div>
+</div>
+
+<!-- ============================================================
+  PAGES — rendered via JS
+============================================================ -->
+<main id="app"></main>
+
+<!-- ============================================================
+  DATA
+============================================================ -->
+<!-- Loader dynamique JSON (remplace outils.js et blog.js) -->
+<script src="data/data-loader.js"></script>
+
+<!-- ============================================================
+  APP ENGINE
+============================================================ -->
+<script>
+// ---- Router ----
+let currentPage = 'home';
+let currentParam = null;
+let mobileOpen = false;
+let activeSector = null;
+let activeFilter = 'all';
+
+// ── SEO : Mise à jour des balises <head> à chaque navigation ────────────
+const SITE_URL = 'https://lumina-ai.fr';
+const SITE_NAME = 'Lumina AI';
+
+function updateSEO({ title, description, url, image }) {
+  const fullTitle = title + ' | ' + SITE_NAME;
+  const img = image || SITE_URL + '/assets/og-default.jpg';
+  const fullUrl = SITE_URL + (url || '/');
+
+  document.getElementById('seo-title').textContent = fullTitle;
+  document.getElementById('seo-desc').setAttribute('content', description);
+  document.getElementById('seo-canonical').setAttribute('href', fullUrl);
+  document.getElementById('og-title').setAttribute('content', fullTitle);
+  document.getElementById('og-desc').setAttribute('content', description);
+  document.getElementById('og-url').setAttribute('content', fullUrl);
+  document.getElementById('og-image').setAttribute('content', img);
+  document.getElementById('tw-title').setAttribute('content', fullTitle);
+  document.getElementById('tw-desc').setAttribute('content', description);
+  document.getElementById('tw-image').setAttribute('content', img);
+  document.title = fullTitle;
+}
+
+function getSEOForPage(page, param) {
+  switch(page) {
+    case 'home':
+      return {
+        title: "Découvrez, comparez et choisissez les meilleurs outils IA",
+        description: "Lumina AI est l'annuaire des outils IA pour particuliers, indépendants, coachs et micro-entrepreneurs. Fiches détaillées, comparatifs et guides pratiques.",
+        url: '/'
+      };
+    case 'outils': {
+      const sec = activeSector ? (window.SECTEURS || []).find(s => s.id === activeSector) : null;
+      return sec ? {
+        title: sec.headline || ("Outils IA — " + sec.label),
+        description: sec.sub || ("Les meilleurs outils IA pour " + sec.label + ". Sélection testée et commentée par Lumina AI."),
+        url: '/#outils/' + sec.id
+      } : {
+        title: "Tous les outils IA pour indépendants et coachs",
+        description: "Annuaire complet des meilleurs outils IA : créer un site, rédaction SEO, réseaux sociaux, vidéo, image, marketing. Filtrez et comparez.",
+        url: '/#outils'
+      };
+    }
+    case 'tool': {
+      const tool = (window.OUTILS || []).find(t => t.id === param);
+      return tool ? {
+        title: tool.name + " — Avis, tarifs et cas d'usage",
+        description: tool.metaDescription || (tool.tagline + " Fonctionnalités, tarifs et cas d'usage de " + tool.name + " sur Lumina AI."),
+        url: '/#tool/' + param,
+        image: tool.logo
+      } : { title: "Fiche outil IA", description: "Détail d'un outil IA sur Lumina AI.", url: '/' };
+    }
+    case 'blog':
+      return {
+        title: "Blog IA — Guides pratiques et analyses pour indépendants",
+        description: "Guides, comparatifs et stratégies pour utiliser l'IA en tant qu'indépendant, coach ou micro-entrepreneur. Publiés chaque semaine par Lumina AI.",
+        url: '/#blog'
+      };
+    case 'article': {
+      const art = (window.ARTICLES || []).find(a => a.slug === param);
+      return art ? {
+        title: art.title,
+        description: art.metaDescription || art.intro.substring(0, 155),
+        url: '/#article/' + param,
+        image: art.coverPhoto
+      } : { title: "Article — Lumina AI", description: "Article sur les outils IA.", url: '/' };
+    }
+    case 'contact':
+      return {
+        title: "Contact — Partenariat, suggestion d'outil, questions",
+        description: "Contactez Lumina AI pour toute question, suggestion d'outil IA, demande de partenariat ou proposition d'article.",
+        url: '/#contact'
+      };
+    case 'qui-sommes-nous':
+      return {
+        title: "Qui sommes-nous — Approche éditoriale et transparence",
+        description: "Lumina AI est un annuaire indépendant d'outils IA pour particuliers et indépendants. Notre approche éditoriale et notre politique de transparence.",
+        url: '/#qui-sommes-nous'
+      };
+    case 'cgv':
+      return {
+        title: "Conditions Générales d'Utilisation",
+        description: "Conditions d'utilisation du site Lumina AI — annuaire indépendant d'outils IA pour indépendants et coachs.",
+        url: '/#cgv'
+      };
+    case 'confidentialite':
+      return {
+        title: "Politique de confidentialité et RGPD",
+        description: "Politique de confidentialité et gestion des données personnelles de Lumina AI, conforme au RGPD.",
+        url: '/#confidentialite'
+      };
+    default:
+      return {
+        title: "Découvrez, comparez et choisissez les meilleurs outils IA",
+        description: "Lumina AI — annuaire de référence des outils IA pour indépendants et coachs.",
+        url: '/'
+      };
+  }
+}
+function navigate(page, param) {
+  currentPage = page;
+  currentParam = param || null;
+  window.scrollTo(0, 0);
+  render();
+  setActiveNav(page);
+
+  // ── Mise à jour URL (hash) ──
+  const hash = param ? '#' + page + '/' + param : '#' + page;
+  history.replaceState(null, '', hash === '#home' ? '/' : hash);
+
+  // ── Mise à jour SEO <head> ──
+  const seo = getSEOForPage(page, param);
+  updateSEO(seo);
+}
+
+function setActiveNav(page) {
+  document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+  const map = { home: 'nl-home', outils: 'nl-outils', blog: 'nl-blog', contact: 'nl-contact' };
+  if (map[page]) document.getElementById(map[page])?.classList.add('active');
+}
+
+function toggleMenu() {
+  mobileOpen = !mobileOpen;
+  document.getElementById('mobile-menu').classList.toggle('open', mobileOpen);
+  document.getElementById('ham-open').style.display = mobileOpen ? 'none' : 'block';
+  document.getElementById('ham-close').style.display = mobileOpen ? 'block' : 'none';
+}
+
+// ---- Main render ----
+function render() {
+  const app = document.getElementById('app');
+  switch(currentPage) {
+    case 'home':       app.innerHTML = renderHome(); break;
+    case 'outils':     app.innerHTML = renderOutils(); break;
+    case 'tool':       app.innerHTML = renderTool(currentParam); break;
+    case 'blog':       app.innerHTML = renderBlog(); break;
+    case 'article':    app.innerHTML = renderArticle(currentParam); break;
+    case 'contact':    app.innerHTML = renderContact(); break;
+    case 'soumettre':  app.innerHTML = renderSoumettre(); break;
+    case 'newsletter': app.innerHTML = renderNewsletter(); break;
+    case 'cgv':        app.innerHTML = renderCGV(); break;
+    case 'confidentialite': app.innerHTML = renderConfidentialite(); break;
+    case 'qui-sommes-nous': app.innerHTML = renderQuiSommesNous(); break;
+    default:           app.innerHTML = render404();
+  }
+}
+
+// ---- Helpers ----
+function stars(score) {
+  const full = Math.floor(score);
+  const empty = 5 - full;
+  return '★'.repeat(full) + '☆'.repeat(empty);
+}
+
+function badgeHtml(tool) {
+  if (!tool.badge) return '';
+  const cls = { best: 'badge-best', new: 'badge-new', api: 'badge-api' }[tool.badge] || '';
+  return `<span class="badge ${cls}">${tool.badgeLabel || tool.badge}</span>`;
+}
+
+function toolCardHtml(tool) {
+  return `
+  <div class="card tool-card" onclick="navigate('tool','${tool.id}')">
+    <div class="tool-card-header">
+      <img src="${tool.logo}" alt="${tool.name}" class="tool-logo" loading="lazy" />
+      <div class="tool-meta">
+        <div class="tool-name">${tool.name}</div>
+        <div class="tool-tagline">${tool.tagline}</div>
+      </div>
+      ${badgeHtml(tool)}
+    </div>
+    <div class="tool-tags">
+      ${tool.tags.map(t => `<span class="tool-tag">${t}</span>`).join('')}
+    </div>
+    <div class="tool-card-footer">
+      <span class="tool-price">${tool.priceType}</span>
+      <span class="tool-price" style="color:var(--ink)">${tool.priceDetails || tool.price || 'Sur devis'}</span>
+    </div>
+  </div>`;
+}
+
+function blogCardHtml(article) {
+  return `
+  <div class="card blog-card" onclick="navigate('article','${article.slug}')">
+    <img src="${article.coverPhoto}" alt="${article.coverAlt || article.title}" class="blog-card-img" loading="lazy" />
+    <div class="blog-card-body">
+      <div class="blog-card-label">${article.sectorLabel}</div>
+      <div class="blog-card-title">${article.title}</div>
+      <div class="blog-card-meta">
+        <span>${article.date || ''}</span>
+        <span>·</span>
+        <span>${article.readTime}</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderNewsletter() {
+  return `
+  <div class="newsletter" style="min-height:100vh;display:flex;align-items:center">
+    <div class="container" style="text-align:center;max-width:540px;margin:0 auto">
+      <div class="hero-eyebrow" style="background:rgba(255,255,255,.1);color:white;margin-bottom:24px">Newsletter</div>
+      <h2 style="font-family:var(--font-heading);font-weight:900;font-size:2.2rem;color:white;margin-bottom:12px">
+        Chaque lundi, les meilleurs outils IA.
+      </h2>
+      <p style="color:#9898b0;margin-bottom:32px">
+        Testés, classés, expliqués. Pas de bruit, juste ce qui marche dans votre contexte professionnel.
+      </p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="votre@email.com" />
+        <button class="btn btn-primary" onclick="handleNewsletter()">S'abonner</button>
+      </div>
+      <p style="font-size:12px;color:#6b6b88;margin-top:12px">Gratuit · Désinscription en un clic</p>
+      <button class="btn btn-ghost" style="margin-top:24px;color:#9898b0;border-color:#333" onclick="navigate('home')">← Retour</button>
+    </div>
+  </div>`;
+}
+
+function handleNewsletter() {
+  // TODO: Connecter à Netlify Forms ou Mailchimp
+  // Option 1 (Netlify): Remplacez par un <form netlify> dans la page HTML
+  // Option 2 (Mailchimp): Intégrez l'API Mailchimp ici
+  alert('Merci ! Vous serez notifié dès le prochain numéro. (À connecter à Netlify Forms ou Mailchimp)');
+}
+
+// ================================================================
+// PAGE : ACCUEIL
+// ================================================================
+function renderHome() {
+  const featured = OUTILS.filter(t => t.tested && t.score >= 4.7).slice(0, 4);
+  const latestArticles = [...ARTICLES].sort((a,b) => b.date?.localeCompare(a.date || '')).slice(0, 3);
+
+  return `
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">✦ Intelligence Gallery</div>
+      <h1 class="display-xl">Trouvez l'outil IA<br>fait pour votre métier.</h1>
+      <p class="sub">Particuliers, indépendants, coachs et micro-entrepreneurs — trouvez l'outil IA qui va vraiment changer votre quotidien.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="navigate('outils')">Explorer les outils →</button>
+        <button class="btn btn-ghost btn-lg" onclick="navigate('blog')">Lire le blog</button>
+      </div>
+      <div style="margin-top:32px;padding:12px 20px;background:rgba(91,94,246,.06);border-radius:var(--radius);display:inline-block;font-size:12px;color:var(--ink-muted);border:1px solid rgba(91,94,246,.15)">
+        ℹ️ <strong>Transparence</strong> — Analyses éditoriales indépendantes. Certains liens sont affiliés (sans surcoût pour vous).
+        <button onclick="navigate('qui-sommes-nous')" style="color:var(--accent);font-size:12px;font-weight:600;background:none;border:none;cursor:pointer;padding:0;margin-left:4px">En savoir plus →</button>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-value">${OUTILS.length}+</div>
+          <div class="hero-stat-label">Outils répertoriés</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">${SECTEURS.length}</div>
+          <div class="hero-stat-label">Secteurs couverts</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">${OUTILS.filter(t=>t.tested).length}</div>
+          <div class="hero-stat-label">Outils testés</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">${ARTICLES.length}</div>
+          <div class="hero-stat-label">Articles publiés</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secteurs -->
+  <section class="section" style="background:var(--surface-2)">
+    <div class="container">
+      <h2 class="display-md" style="margin-bottom:8px">Par secteur</h2>
+      <p class="text-muted" style="margin-bottom:36px">Filtrez par domaine professionnel</p>
+      <div class="grid-3">
+        ${SECTEURS.map(s => {
+          const count = OUTILS.filter(t => t.sector.includes(s.id)).length;
+          return `
+          <div class="card" style="cursor:pointer;overflow:hidden" onclick="navigate('outils'); setSector('${s.id}')">
+            <div style="position:relative;height:140px;overflow:hidden">
+              <img src="${s.photo}" alt="${s.label}" style="width:100%;height:100%;object-fit:cover" loading="lazy" />
+              <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 60%)"></div>
+              <div style="position:absolute;bottom:14px;left:16px;color:white">
+                <div style="font-family:var(--font-heading);font-weight:800;font-size:1rem">${s.label}</div>
+                <div style="font-size:12px;opacity:.8">${count} outil${count>1?'s':''}</div>
+              </div>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- Outils en vedette -->
+  <section class="section">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:gap">
+        <div>
+          <h2 class="display-md" style="margin-bottom:4px">Sélection de la semaine</h2>
+          <p class="text-muted">Notre sélection du moment, testée et commentée</p>
+        </div>
+        <button class="btn btn-ghost" onclick="navigate('outils')">Voir tous les outils →</button>
+      </div>
+      <div class="grid-4">
+        ${featured.map(t => toolCardHtml(t)).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section class="section" style="background:var(--surface-2)">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px">
+        <div>
+          <h2 class="display-md" style="margin-bottom:4px">Derniers articles</h2>
+          <p class="text-muted">Analyses, guides et tendances IA</p>
+        </div>
+        <button class="btn btn-ghost" onclick="navigate('blog')">Tous les articles →</button>
+      </div>
+      <div class="grid-3">
+        ${latestArticles.map(a => blogCardHtml(a)).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <h2>Chaque lundi, les nouveaux outils testés.</h2>
+      <p>Pas de bruit, juste ce qui marche dans votre contexte professionnel.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="votre@email.com" id="nl-email-home" />
+        <button class="btn btn-primary" onclick="handleNewsletter()">S'abonner gratuitement</button>
+      </div>
+    </div>
+  </section>
+
+  ${renderFooter()}`;
+}
+
+// Liaison depuis les cards de secteur
+function setSector(id) {
+  activeSector = id;
+}
+
+// ================================================================
+// PAGE : OUTILS IA
+// ================================================================
+function renderOutils() {
+  const sector = activeSector;
+  const filtered = OUTILS.filter(t => {
+    if (sector && !t.sector.includes(sector)) return false;
+    if (activeFilter === 'tested') return t.tested;
+    if (activeFilter === 'free') return t.priceType === 'Gratuit' || t.priceType === 'Freemium';
+    if (activeFilter === 'api') return t.apiReady;
+    return true;
+  });
+
+  return `
+  <div class="page-header">
+    <div class="container">
+      <h1 class="display-lg">
+        ${sector ? SECTEURS.find(s=>s.id===sector)?.headline || 'Outils IA' : 'Tous les outils IA'}
+      </h1>
+      <p class="sub">
+        ${sector ? SECTEURS.find(s=>s.id===sector)?.sub || '' : 'Notre sélection complète, filtrée par secteur professionnel.'}
+      </p>
+    </div>
+  </div>
+
+  <div class="filters-bar">
+    <div class="container">
+      <div class="filters-inner">
+        <!-- Secteurs -->
+        <div class="sector-nav">
+          <button class="sector-pill ${!sector ? 'active':''}" onclick="activeSector=null; render(); updateSEO(getSEOForPage('outils',null))">
+            Tous <span class="sector-pill-count">${OUTILS.length}</span>
+          </button>
+          ${SECTEURS.map(s => {
+            const n = OUTILS.filter(t => t.sector.includes(s.id)).length;
+            return `<button class="sector-pill ${sector===s.id?'active':''}" onclick="activeSector='${s.id}'; render(); updateSEO(getSEOForPage('outils','${s.id}'))">
+              ${s.label} <span class="sector-pill-count">${n}</span>
+            </button>`;
+          }).join('')}
+        </div>
+        <!-- Filtres rapides -->
+        <div class="filter-group" style="margin-left:auto">
+          <span class="filter-label">Filtrer :</span>
+          ${['all','tested','free','api'].map(f => {
+            const labels = {all:'Tous', tested:'Testés ✓', free:'Gratuit/Freemium', api:'API ready'};
+            return `<button class="sector-pill ${activeFilter===f?'active':''}" style="font-size:12px" onclick="activeFilter='${f}'; render()">${labels[f]}</button>`;
+          }).join('')}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      ${filtered.length === 0 ? `
+        <div class="empty-state">
+          <div class="empty-state-icon">🔍</div>
+          <h3>Aucun outil pour ces critères</h3>
+          <p>Essayez un autre filtre ou <button class="btn btn-ghost btn-sm" onclick="activeSector=null;activeFilter='all';render()">réinitialisez</button></p>
+        </div>
+      ` : `
+        <div style="margin-bottom:16px;font-size:13px;color:var(--ink-muted)">
+          <strong style="color:var(--ink)">${filtered.length}</strong> outil${filtered.length>1?'s':''} trouvé${filtered.length>1?'s':''}
+        </div>
+        <div class="grid-4">
+          ${filtered.map(t => toolCardHtml(t)).join('')}
+        </div>
+      `}
+
+      <!-- CTA Soumettre un outil -->
+      <div style="margin-top:64px;padding:40px;background:var(--surface-2);border-radius:var(--radius-lg);text-align:center;border:1px dashed var(--border)">
+        <div style="font-size:1.5rem;margin-bottom:12px">🛠</div>
+        <h3 style="font-family:var(--font-heading);font-weight:800;margin-bottom:8px">Vous connaissez un outil qui manque ?</h3>
+        <p style="color:var(--ink-muted);margin-bottom:20px;font-size:14px">Suggérez-le à notre équipe. Si il passe notre test, il sera référencé.</p>
+        <button class="btn btn-primary" onclick="navigate('soumettre')">Soumettre un outil →</button>
+      </div>
+    </div>
+  </section>
+
+  ${renderFooter()}`;
+}
+
+// ================================================================
+// PAGE : FICHE OUTIL
+// ================================================================
+function renderTool(id) {
+  const tool = OUTILS.find(t => t.id === id);
+  if (!tool) return render404();
+
+  const relatedTools = OUTILS.filter(t => t.id !== id && t.sector.some(s => tool.sector.includes(s))).slice(0,3);
+  const relatedArticles = ARTICLES.filter(a => tool.sector.includes(a.sector)).slice(0,2);
+
+  return `
+  <div class="tool-hero">
+    <div class="container">
+      <div style="margin-bottom:16px">
+        <button class="btn btn-ghost btn-sm" onclick="navigate('outils')">← Retour aux outils</button>
+      </div>
+      <div class="tool-hero-inner">
+        <img src="${tool.logo}" alt="${tool.name}" class="tool-hero-logo" />
+        <div class="tool-hero-content">
+          <h1 class="tool-hero-name display-lg">${tool.name}</h1>
+          <p class="tool-hero-tagline">${tool.tagline}</p>
+          <div class="tool-hero-badges">
+            ${badgeHtml(tool)}
+            ${tool.apiReady ? '<span class="badge badge-api">API ready</span>' : ''}
+          </div>
+          <div class="tool-hero-actions">
+            <a href="${tool.url}" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+              Essayer ${tool.name} →
+            </a>
+            <button class="btn btn-ghost btn-lg" onclick="navigate('contact')">Signaler un problème</button>
+          </div>
+        </div>
+        <div style="flex-shrink:0;text-align:left;min-width:220px">
+          <div style="padding:20px;background:var(--surface-2);border-radius:var(--radius)">
+            <div style="font-size:11px;text-transform:uppercase;font-weight:700;letter-spacing:.06em;color:var(--ink-muted);margin-bottom:8px">Tarif</div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:1rem;color:var(--ink);margin-bottom:4px">${tool.priceDetails || tool.price || 'Sur devis'}</div>
+            <div style="font-size:12px;color:var(--ink-muted)">${tool.priceType}</div>
+          </div>
+          <div style="margin-top:12px;padding:14px 20px;background:var(--accent-soft);border-radius:var(--radius);font-size:12px;color:var(--ink-muted);line-height:1.5">
+            ℹ️ <em>Analyse indépendante. Liens affiliés possibles — sans frais pour vous.</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="gap:56px;align-items:start">
+        <!-- Description -->
+        <div>
+          <h2 class="display-md" style="margin-bottom:20px">À propos</h2>
+          <p style="font-size:16px;line-height:1.75;color:var(--ink-muted)">${tool.description || tool.tagline}</p>
+
+          ${tool.features && tool.features.length > 0 ? `
+          <div style="margin-top:32px">
+            <h3 style="font-family:var(--font-heading);font-weight:800;margin-bottom:16px">Fonctionnalités clés</h3>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+              ${tool.features.map(f => `<li style="display:flex;gap:10px;font-size:14px;color:var(--ink-muted)"><span style="color:var(--accent);font-weight:700;flex-shrink:0">✓</span>${f}</li>`).join('')}
+            </ul>
+          </div>` : ''}
+
+          ${tool.useCases && tool.useCases.length > 0 ? `
+          <div style="margin-top:28px">
+            <h3 style="font-family:var(--font-heading);font-weight:800;margin-bottom:16px">Pour qui ?</h3>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              ${tool.useCases.map(u => `<div style="background:var(--surface-2);border-radius:var(--radius);padding:12px 16px;font-size:14px;color:var(--ink-muted)">→ ${u}</div>`).join('')}
+            </div>
+          </div>` : ''}
+
+          <div style="margin-top:28px">
+            <h3 style="font-family:var(--font-heading);font-weight:800;margin-bottom:16px">Catégories</h3>
+            <div class="tag-list">
+              ${tool.sector.map(s => {
+                const sec = SECTEURS.find(x=>x.id===s);
+                return `<button class="tag" onclick="activeSector='${s}';navigate('outils')">${sec?.label || s}</button>`;
+              }).join('')}
+              ${tool.tags.map(t=>`<span class="tag">${t}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div>
+          ${relatedTools.length > 0 ? `
+          <div style="margin-bottom:36px">
+            <h3 style="font-family:var(--font-heading);font-weight:800;margin-bottom:16px">Outils similaires</h3>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              ${relatedTools.map(t => `
+                <div class="card" style="padding:16px;cursor:pointer;display:flex;align-items:center;gap:14px" onclick="navigate('tool','${t.id}')">
+                  <img src="${t.logo}" style="width:40px;height:40px;border-radius:8px;object-fit:cover" />
+                  <div>
+                    <div style="font-weight:700;font-size:14px">${t.name}</div>
+                    <div style="font-size:12px;color:var(--ink-muted)">${t.priceType}</div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>` : ''}
+
+          ${relatedArticles.length > 0 ? `
+          <div>
+            <h3 style="font-family:var(--font-heading);font-weight:800;margin-bottom:16px">Articles liés</h3>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              ${relatedArticles.map(a => `
+                <div class="card blog-card" style="cursor:pointer" onclick="navigate('article','${a.slug}')">
+                  <div style="padding:16px">
+                    <div class="blog-card-label">${a.sectorLabel}</div>
+                    <div style="font-family:var(--font-heading);font-weight:700;font-size:14px">${a.title}</div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>` : ''}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  ${renderFooter()}`;
+}
+
+// ================================================================
+// PAGE : BLOG
+// ================================================================
+function renderBlog() {
+  const bySector = currentParam || null;
+  const filtered = bySector ? ARTICLES.filter(a => a.sector === bySector) : ARTICLES;
+
+  return `
+  <div class="page-header">
+    <div class="container">
+      <h1 class="display-lg">Blog & Analyses</h1>
+      <p class="sub">Décryptages, guides et retours d'expérience sur l'IA professionnelle.</p>
+    </div>
+  </div>
+
+  <div class="filters-bar">
+    <div class="container">
+      <div class="sector-nav">
+        <button class="sector-pill ${!bySector?'active':''}" onclick="navigate('blog')">
+          Tous <span class="sector-pill-count">${ARTICLES.length}</span>
+        </button>
+        ${SECTEURS.map(s => {
+          const n = ARTICLES.filter(a => a.sector === s.id).length;
+          if (n === 0) return '';
+          return `<button class="sector-pill ${bySector===s.id?'active':''}" onclick="navigate('blog','${s.id}')">
+            ${s.label} <span class="sector-pill-count">${n}</span>
+          </button>`;
+        }).join('')}
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      ${filtered.length === 0 ? `
+        <div class="empty-state">
+          <div class="empty-state-icon">📝</div>
+          <h3>Aucun article dans ce secteur</h3>
+          <p>Revenez bientôt ou <button class="btn btn-ghost btn-sm" onclick="navigate('blog')">explorez tous les articles</button></p>
+        </div>
+      ` : `
+        <!-- Article en une -->
+        ${filtered.length > 0 ? `
+        <div class="card" style="cursor:pointer;display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:40px;overflow:hidden" onclick="navigate('article','${filtered[0].slug}')">
+          <img src="${filtered[0].coverPhoto}" alt="${filtered[0].title}" style="width:100%;height:320px;object-fit:cover" loading="lazy" />
+          <div style="padding:40px;display:flex;flex-direction:column;justify-content:center">
+            <div class="blog-card-label">${filtered[0].sectorLabel}</div>
+            <h2 style="font-family:var(--font-heading);font-weight:900;font-size:1.6rem;margin-bottom:16px;line-height:1.2">${filtered[0].title}</h2>
+            <p style="color:var(--ink-muted);font-size:14px;line-height:1.65;margin-bottom:20px">${filtered[0].intro}</p>
+            <div class="blog-card-meta" style="margin-bottom:20px">
+              <span>${filtered[0].date || ''}</span>·<span>${filtered[0].readTime}</span>
+            </div>
+            <button class="btn btn-primary" style="align-self:flex-start">Lire l'article →</button>
+          </div>
+        </div>` : ''}
+
+        <!-- Grille des autres -->
+        ${filtered.length > 1 ? `
+        <div class="grid-3">
+          ${filtered.slice(1).map(a => blogCardHtml(a)).join('')}
+        </div>` : ''}
+      `}
+
+      <!-- CTA contribuer -->
+      <div style="margin-top:64px;padding:40px;background:var(--surface-2);border-radius:var(--radius-lg);text-align:center;border:1px dashed var(--border)">
+        <div style="font-size:1.5rem;margin-bottom:12px">✍️</div>
+        <h3 style="font-family:var(--font-heading);font-weight:800;margin-bottom:8px">Envie de contribuer ?</h3>
+        <p style="color:var(--ink-muted);margin-bottom:20px;font-size:14px">Partagez votre expertise sur l'IA dans votre secteur. Nous publions des analyses de praticiens.</p>
+        <button class="btn btn-primary" onclick="navigate('contact')">Proposer un article →</button>
+      </div>
+    </div>
+  </section>
+
+  ${renderFooter()}`;
+}
+
+// ================================================================
+// PAGE : ARTICLE
+// ================================================================
+function renderArticle(slug) {
+  const article = ARTICLES.find(a => a.slug === slug);
+  if (!article) return render404();
+
+  const related = ARTICLES.filter(a => a.slug !== slug && a.sector === article.sector).slice(0,2);
+
+  const DISCLAIMER = `<div style="background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin:32px 0;font-size:13px;color:var(--ink-muted);line-height:1.6">
+    <strong style="color:var(--ink)">ℹ️ Transparence éditoriale</strong> — Cet article est le fruit d'une analyse indépendante. Lumina AI n'a reçu aucune rémunération de la part des éditeurs d'outils mentionnés pour la rédaction de ce contenu. Certains liens de ce site sont des liens affiliés : si vous vous abonnez à un outil via notre lien, nous percevons une commission sans que cela ne change le prix que vous payez. Cette politique n'influence pas nos recommandations éditoriales.
+  </div>`;
+
+  const parts = [];
+  parts.push('<div class="article-header">');
+  parts.push('<div class="container" style="max-width:840px;padding-top:calc(var(--nav-h) + 48px)">');
+  parts.push('<button class="btn btn-ghost btn-sm" style="margin-bottom:24px" onclick="navigate(\'blog\')">← Retour au blog</button>');
+  parts.push('<div class="article-label">' + article.sectorLabel + '</div>');
+  parts.push('<h1 class="article-title">' + article.title + '</h1>');
+  parts.push('<div style="display:flex;align-items:center;gap:16px;margin-bottom:40px;font-size:13px;color:var(--ink-muted)">');
+  if (article.date) parts.push('<span>📅 ' + article.date + '</span>');
+  parts.push('<span>⏱ ' + article.readTime + '</span>');
+  parts.push('</div></div></div>');
+  parts.push('<div class="container" style="max-width:840px;padding-bottom:80px">');
+  parts.push('<img src="' + article.coverPhoto + '" alt="' + (article.coverAlt || article.title) + '" class="article-cover" loading="lazy" />');
+  parts.push(DISCLAIMER);
+  parts.push('<div class="article-body">');
+  parts.push('<p style="font-size:17px;line-height:1.8;font-weight:400">' + article.intro + '</p>');
+  if (article.pullQuote) {
+    parts.push('<div class="pull-quote"><p>' + article.pullQuote + '</p></div>');
+  }
+  article.sections.forEach(function(s) {
+    parts.push('<h2>' + s.title + '</h2>');
+    parts.push('<p>' + s.body + '</p>');
+  });
+  parts.push(DISCLAIMER);
+  parts.push('<div class="tag-list" style="margin-top:36px">');
+  article.tags.forEach(function(t) { parts.push('<span class="tag">' + t + '</span>'); });
+  parts.push('</div></div>');
+  if (related.length > 0) {
+    parts.push('<div style="margin-top:64px;padding-top:48px;border-top:1px solid var(--border)">');
+    parts.push('<h3 style="font-family:var(--font-heading);font-weight:800;font-size:1.3rem;margin-bottom:24px">Articles qui pourraient vous intéresser</h3>');
+    parts.push('<div class="grid-2">');
+    related.forEach(function(a) { parts.push(blogCardHtml(a)); });
+    parts.push('</div></div>');
+  }
+  parts.push('</div>');
+  parts.push(renderFooter());
+  return parts.join('\n');
+}
+
+// ================================================================
+// PAGE : CONTACT
+// ================================================================
+function renderContact() {
+  return `
+  <div class="static-page">
+    <div class="container">
+      <div style="max-width:680px;margin:0 auto">
+        <button class="btn btn-ghost btn-sm" style="margin-bottom:32px" onclick="navigate('home')">← Accueil</button>
+        <h1 class="display-lg" style="margin-bottom:8px">Contactez-nous</h1>
+        <p class="text-muted" style="margin-bottom:48px">Une question, un partenariat, un outil à signaler ? On vous répond sous 48h.</p>
+
+        <!-- 
+          INTÉGRATION FORMULAIRE :
+          Option A — Netlify Forms (recommandé) :
+            Ajoutez l'attribut data-netlify="true" au <form> et name="contact"
+            Netlify détecte automatiquement et stocke les soumissions dans votre dashboard.
+          Option B — Typeform / Tally.so (sans code) :
+            Remplacez ce formulaire par un embed iframe Tally (gratuit, no-code).
+        -->
+        <form class="contact-form" id="contact-form" data-netlify="true" name="contact" onsubmit="handleContact(event)">
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="grid-2" style="gap:18px">
+            <div class="form-group">
+              <label class="form-label">Prénom & Nom *</label>
+              <input class="form-input" name="name" type="text" placeholder="Marie Dupont" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email *</label>
+              <input class="form-input" name="email" type="email" placeholder="marie@exemple.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Sujet</label>
+            <select class="form-select" name="subject">
+              <option value="">Choisir un sujet</option>
+              <option>Question sur un outil</option>
+              <option>Soumettre un outil</option>
+              <option>Partenariat / B2B</option>
+              <option>Proposer un article</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message *</label>
+            <textarea class="form-textarea" name="message" placeholder="Décrivez votre demande..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Envoyer le message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  ${renderFooter()}`;
+}
+
+function handleContact(e) {
+  e.preventDefault();
+  // Sur Netlify, supprimez ce handler — Netlify gère la soumission nativement.
+  // Pour test local : affiche confirmation.
+  document.getElementById('contact-form').innerHTML = `
+    <div style="text-align:center;padding:48px 0">
+      <div style="font-size:3rem;margin-bottom:16px">✅</div>
+      <h3 style="font-family:var(--font-heading);font-weight:800;font-size:1.3rem;margin-bottom:8px">Message envoyé !</h3>
+      <p style="color:var(--ink-muted)">On vous répond sous 48h ouvrées.</p>
+    </div>`;
+}
+
+// ================================================================
+// PAGE : SOUMETTRE UN OUTIL
+// ================================================================
+function renderSoumettre() {
+  return `
+  <div class="static-page">
+    <div class="container">
+      <div style="max-width:680px;margin:0 auto">
+        <button class="btn btn-ghost btn-sm" style="margin-bottom:32px" onclick="navigate('home')">← Accueil</button>
+        <div class="hero-eyebrow" style="margin-bottom:20px">Contribution</div>
+        <h1 class="display-lg" style="margin-bottom:8px">Soumettre un outil</h1>
+        <p class="text-muted" style="margin-bottom:40px">Vous connaissez un outil IA qui mérite d'être référencé ? Notre équipe l'évalue et le publie si il passe nos critères.</p>
+
+        <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:24px;margin-bottom:36px">
+          <h3 style="font-family:var(--font-heading);font-weight:800;margin-bottom:12px">Nos critères de sélection</h3>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+            ${['✓ L\'outil doit être utilisable par un professionnel (pas grand public)',
+               '✓ Prix transparent et accessible',
+               '✓ Actif et maintenu (dernière update < 12 mois)',
+               '✓ Au moins un cas d\'usage B2B démontrable'].map(c=>`<li style="font-size:14px;color:var(--ink-muted)">${c}</li>`).join('')}
+          </ul>
+        </div>
+
+        <form class="contact-form" data-netlify="true" name="soumettre" onsubmit="handleContact(event)">
+          <input type="hidden" name="form-name" value="soumettre" />
+          <div class="form-group">
+            <label class="form-label">Nom de l'outil *</label>
+            <input class="form-input" name="tool_name" type="text" required placeholder="Ex : Notion AI" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">URL *</label>
+            <input class="form-input" name="tool_url" type="url" required placeholder="https://..." />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Secteur principal</label>
+            <select class="form-select" name="sector">
+              <option value="">Choisir un secteur</option>
+              ${SECTEURS.map(s=>`<option value="${s.id}">${s.label}</option>`).join('')}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Pourquoi cet outil mérite d'être référencé ?</label>
+            <textarea class="form-textarea" name="why" placeholder="Cas d'usage, différentiation, retour d'expérience..."></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Votre email (pour suivi)</label>
+            <input class="form-input" name="email" type="email" placeholder="vous@exemple.com" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Soumettre →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  ${renderFooter()}`;
+}
+
+// ================================================================
+// PAGES STATIQUES
+// ================================================================
+function renderQuiSommesNous() {
+  return `
+  <div class="static-page">
+    <div class="container">
+      <div class="prose">
+        <button class="btn btn-ghost btn-sm" style="margin-bottom:32px" onclick="navigate('home')">← Accueil</button>
+        <h1 class="display-lg" style="margin-bottom:32px">Qui sommes-nous ?</h1>
+        <h2>Ce qu'on fait (et ce qu'on ne prétend pas être)</h2>
+        <p>Lumina AI est un annuaire indépendant d'outils d'intelligence artificielle, conçu pour les particuliers, indépendants, coachs et micro-entrepreneurs qui veulent gagner du temps et développer leur activité grâce à l'IA — sans être développeurs, sans jargon technique, et sans se noyer dans les milliers d'outils disponibles.</p>
+        <p>Nous ne sommes pas des ingénieurs IA, des chercheurs en machine learning ou des consultants en transformation digitale de grandes entreprises. Nous sommes des curieux, des utilisateurs quotidiens de ces outils, qui ont décidé de centraliser ce qu'on apprend pour que vous n'ayez pas à le découvrir seuls.</p>
+        <h2>Notre approche éditoriale</h2>
+        <p>Chaque fiche outil est rédigée après exploration de l'outil : ses fonctionnalités réelles, ses cas d'usage concrets, sa structure tarifaire vérifiée. Nous n'acceptons aucun paiement pour référencer un outil ou le mettre en avant. Notre sélection est guidée par un seul critère : est-ce que cet outil apporte une vraie valeur à quelqu'un qui démarre ou qui développe son activité ?</p>
+        <h2>Les liens affiliés : la transparence sur comment on fonctionne</h2>
+        <p>Certains liens vers les outils référencés sur Lumina AI sont des liens affiliés. Cela signifie que si vous vous abonnez à un outil via notre lien, nous percevons une commission de la part de l'éditeur — sans que cela ne change le prix que vous payez. Ces commissions nous permettent de maintenir et d'alimenter ce site gratuitement pour vous. Elles n'influencent pas nos recommandations : nous ne mettons pas en avant un outil simplement parce qu'il a un programme d'affiliation.</p>
+        <h2>Ce qu'on ne fait pas</h2>
+        <p>On ne note pas les outils avec des étoiles ou des scores subjectifs — un outil parfait pour un freelance peut être totalement inadapté à un autre profil. On ne prétend pas avoir testé exhaustivement chaque outil dans tous ses usages. On ne recommande pas un outil sur un autre dans nos articles — on présente les fonctionnalités et les cas d'usage pour que vous puissiez choisir selon votre situation.</p>
+        <h2>Nous contacter</h2>
+        <p>Pour toute question, signalement d'information obsolète, demande de partenariat ou suggestion d'outil : <button class="btn btn-ghost btn-sm" onclick="navigate('contact')">page de contact</button></p>
+      </div>
+    </div>
+  </div>
+  ${renderFooter()}`;
+}
+
+function renderCGV() {
+  return `
+  <div class="static-page">
+    <div class="container">
+      <div class="prose">
+        <button class="btn btn-ghost btn-sm" style="margin-bottom:32px" onclick="navigate('home')">← Accueil</button>
+        <h1 class="display-lg" style="margin-bottom:32px">Conditions Générales d'Utilisation</h1>
+        <h2>1. Objet et acceptation</h2>
+        <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation du site Lumina AI. En naviguant sur ce site, vous acceptez sans réserve les présentes conditions dans leur intégralité. Si vous n'acceptez pas ces conditions, nous vous invitons à ne pas utiliser ce site.</p>
+        <h2>2. Nature du contenu et responsabilité éditoriale</h2>
+        <p>Lumina AI est un site de curation et d'information sur les outils d'intelligence artificielle. Les fiches outils, articles et contenus publiés le sont à titre informatif et éducatif. Lumina AI s'efforce de maintenir des informations à jour, mais ne peut garantir l'exactitude permanente des tarifs, fonctionnalités et disponibilités des outils référencés, ces informations pouvant évoluer sans préavis de la part des éditeurs concernés. Lumina AI ne saurait être tenu responsable des décisions d'achat prises sur la base des informations publiées, ni des dommages directs ou indirects résultant de l'utilisation des outils référencés.</p>
+        <h2>3. Liens affiliés et politique commerciale</h2>
+        <p>Certains liens présents sur Lumina AI sont des liens affiliés. Lorsque vous cliquez sur un lien affilié et procédez à un achat ou à une inscription, Lumina AI peut percevoir une commission de la part de l'éditeur concerné. Cette commission est sans incidence sur le prix que vous payez. Lumina AI s'engage à identifier clairement ces liens affiliés et à maintenir une ligne éditoriale indépendante. Aucun outil ne peut acheter son référencement ou son positionnement sur ce site.</p>
+        <h2>4. Propriété intellectuelle</h2>
+        <p>L'ensemble des contenus éditoriaux originaux publiés sur Lumina AI (textes d'articles, descriptions, structure et organisation des fiches) sont protégés par le droit d'auteur. Toute reproduction, même partielle, sans autorisation écrite préalable est interdite. Les noms, logos et marques des outils référencés sont la propriété de leurs éditeurs respectifs.</p>
+        <h2>5. Limitation de responsabilité</h2>
+        <p>Lumina AI est un site d'information et non un prestataire des outils qu'il référence. Nous ne fournissons aucun support technique pour les outils tiers. En cas de litige avec un éditeur d'outil, le contrat est exclusivement entre vous et cet éditeur.</p>
+        <h2>6. Modifications des CGU</h2>
+        <p>Lumina AI se réserve le droit de modifier les présentes CGU à tout moment. Les modifications entrent en vigueur dès leur publication sur le site. Votre utilisation continue du site après modification vaut acceptation des nouvelles conditions.</p>
+        <h2>7. Contact</h2>
+        <p>Pour toute question relative aux présentes CGU : <button class="btn btn-ghost btn-sm" onclick="navigate('contact')">contactez-nous</button></p>
+      </div>
+    </div>
+  </div>
+  ${renderFooter()}`;
+}
+
+function renderConfidentialite() {
+  return `
+  <div class="static-page">
+    <div class="container">
+      <div class="prose">
+        <button class="btn btn-ghost btn-sm" style="margin-bottom:32px" onclick="navigate('home')">← Accueil</button>
+        <h1 class="display-lg" style="margin-bottom:32px">Politique de confidentialité</h1>
+        <h2>Données collectées</h2>
+        <p>Lumina AI collecte uniquement les données que vous nous transmettez volontairement via nos formulaires (contact, newsletter, soumission d'outil). Aucune donnée de navigation n'est revendue à des tiers.</p>
+        <h2>Cookies</h2>
+        <p>Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement. Aucun cookie publicitaire ou de tracking tiers n'est utilisé.</p>
+        <h2>Vos droits (RGPD)</h2>
+        <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ces droits : <button class="btn btn-ghost btn-sm" onclick="navigate('contact')">contactez-nous</button></p>
+        <h2>Hébergement</h2>
+        <p>Ce site est hébergé sur Netlify (San Francisco, CA, USA) qui dispose d'un Data Processing Agreement conforme au RGPD.</p>
+      </div>
+    </div>
+  </div>
+  ${renderFooter()}`;
+}
+
+function render404() {
+  return `
+  <div style="min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:var(--nav-h)">
+    <div>
+      <div style="font-size:4rem;margin-bottom:16px">404</div>
+      <h2 style="font-family:var(--font-heading);font-weight:900;font-size:1.8rem;margin-bottom:8px">Page introuvable</h2>
+      <p style="color:var(--ink-muted);margin-bottom:24px">Cette page n'existe pas ou a été déplacée.</p>
+      <button class="btn btn-primary btn-lg" onclick="navigate('home')">Retour à l'accueil</button>
+    </div>
+  </div>
+  ${renderFooter()}`;
+}
+
+// ================================================================
+// FOOTER (composant réutilisé)
+// ================================================================
+function renderFooter() {
+  return `
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Lumina <em>AI</em></div>
+          <div class="footer-tagline">Intelligence Gallery — Trouvez l'outil IA fait pour votre métier. Testé, classé, expliqué.</div>
+        </div>
+        <div>
+          <div class="footer-col-title">Secteurs</div>
+          ${SECTEURS.map(s=>`<button class="footer-link" onclick="activeSector='${s.id}';navigate('outils')">${s.label}</button>`).join('')}
+        </div>
+        <div>
+          <div class="footer-col-title">Ressources</div>
+          <button class="footer-link" onclick="navigate('blog')">Blog</button>
+          <button class="footer-link" onclick="navigate('soumettre')">Soumettre un outil</button>
+          <button class="footer-link" onclick="navigate('newsletter')">Newsletter</button>
+          <button class="footer-link" onclick="navigate('contact')">Contact</button>
+        </div>
+        <div>
+          <div class="footer-col-title">Légal</div>
+          <button class="footer-link" onclick="navigate('qui-sommes-nous')">Qui sommes-nous ?</button>
+          <button class="footer-link" onclick="navigate('confidentialite')">Confidentialité</button>
+          <button class="footer-link" onclick="navigate('cgv')">CGU</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lumina AI. Tous droits réservés.</span>
+        <span>Intelligence for professionals.</span>
+      </div>
+    </div>
+  </footer>`;
+}
+
+// ================================================================
+// INITIALISATION
+// ================================================================
+window.addEventListener('DOMContentLoaded', async () => {
+  // Afficher un écran de chargement
+  document.getElementById('app').innerHTML = `
+    <div style="min-height:80vh;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;padding-top:var(--nav-h)">
+      <div style="width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite"></div>
+      <p style="color:var(--ink-muted);font-size:14px">Chargement...</p>
+    </div>
+    <style>@keyframes spin{to{transform:rotate(360deg)}}</style>`;
+
+  // Charger les données JSON depuis /content/
+  try {
+    await loadAllData();
+  } catch(e) {
+    console.error('Erreur de chargement des données:', e);
+    document.getElementById('app').innerHTML = `
+      <div style="text-align:center;padding:80px 24px">
+        <p style="color:var(--ink-muted)">Erreur de chargement. Rechargez la page.</p>
+      </div>`;
+    return;
+  }
+
+  // Lire le hash pour deep-linking
+  const hash = location.hash.replace('#', '');
+  if (hash && hash !== 'home') {
+    const parts = hash.split('/');
+    navigate(parts[0], parts[1] || null);
+  } else {
+    navigate('home');
+  }
+});
+
+// Gestion du bouton Retour du navigateur
+window.addEventListener('popstate', () => {
+  const hash = location.hash.replace('#', '');
+  if (hash) {
+    const parts = hash.split('/');
+    navigate(parts[0], parts[1] || null);
+  } else {
+    navigate('home');
+  }
+});
+</script>
+
+</body>
+</html>

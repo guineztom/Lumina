@@ -1,0 +1,35 @@
+{
+  "id": "peech",
+  "name": "Peech",
+  "tagline": "Transformez vos vidéos longues en clips courts optimisés pour les réseaux.",
+  "category": "video-editing",
+  "sector": [
+    "video-audio",
+    "reseaux-sociaux"
+  ],
+  "priceDetails": "À partir de 83 $/mois (Growth) — plans annuels disponibles",
+  "priceType": "Payant",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/peech.tech",
+  "url": "#",
+  "tags": [
+    "Montage automatique",
+    "Repurposing",
+    "Clips courts"
+  ],
+  "description": "Peech analyse vos vidéos longues (interviews, webinaires, podcasts vidéo) et en extrait automatiquement les meilleurs moments pour créer des clips courts avec sous-titres, branding et mise en forme pour Reels, TikTok ou LinkedIn.",
+  "features": [
+    "Identification automatique des moments forts",
+    "Génération de clips courts formatés",
+    "Sous-titres automatiques précis",
+    "Branding et personnalisation intégrés",
+    "Gestion multi-format (vertical, carré, horizontal)"
+  ],
+  "useCases": [
+    "Podcasteur vidéo qui recycle ses épisodes en Reels",
+    "Coach qui transforme ses webinaires en contenu social",
+    "Créateur qui veut maximiser chaque contenu vidéo long"
+  ]
+}

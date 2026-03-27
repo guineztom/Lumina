@@ -1,0 +1,34 @@
+{
+  "id": "koala-ai",
+  "name": "Koala AI",
+  "tagline": "Générez des articles de blog SEO publiables en un clic.",
+  "category": "seo-writing",
+  "sector": [
+    "redaction-seo"
+  ],
+  "priceDetails": "À partir de 9 $/mois (100 crédits) — plusieurs paliers disponibles",
+  "priceType": "Payant",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/koala.sh",
+  "url": "#",
+  "tags": [
+    "SEO",
+    "Blog",
+    "Contenu long"
+  ],
+  "description": "Koala AI génère des articles de blog longs, bien structurés et optimisés SEO directement depuis un mot-clé. Il intègre les résultats de recherche en temps réel pour que le contenu soit actuel et factuel. L'un des meilleurs rapports qualité-prix pour la production de contenu SEO.",
+  "features": [
+    "Génération d'articles de 1500 à 3000 mots",
+    "Intégration des SERPs en temps réel",
+    "Structure H1/H2/H3 automatique",
+    "Images Unsplash intégrées automatiquement",
+    "Export direct vers WordPress"
+  ],
+  "useCases": [
+    "Blogueur qui veut publier régulièrement sans tout rédiger",
+    "Freelance SEO qui gère plusieurs clients en parallèle",
+    "E-commerçant qui veut des articles et fiches produits optimisés"
+  ]
+}

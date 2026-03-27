@@ -1,0 +1,34 @@
+{
+  "id": "surgeograph",
+  "name": "SurgeGraph",
+  "tagline": "Créez une stratégie de contenu SEO complète et rédigez en masse.",
+  "category": "seo-writing",
+  "sector": [
+    "redaction-seo"
+  ],
+  "priceDetails": "À partir de 29 $/mois",
+  "priceType": "Payant",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/surgegraph.io",
+  "url": "#",
+  "tags": [
+    "SEO",
+    "Stratégie contenu",
+    "Génération en volume"
+  ],
+  "description": "SurgeGraph permet de construire une stratégie de cocon sémantique complète : il identifie les clusters de mots-clés, planifie les articles et les génère en masse. Particulièrement adapté aux sites qui veulent accélérer leur croissance SEO organique rapidement.",
+  "features": [
+    "Cartographie de clusters de mots-clés",
+    "Génération d'articles en lot",
+    "Optimisation SERP intégrée",
+    "Planificateur de contenu visuel",
+    "Export multi-format"
+  ],
+  "useCases": [
+    "Créateur de sites de niche qui veut scaler rapidement son contenu",
+    "Entrepreneur qui lance un blog et veut dominer un sujet",
+    "Indépendant qui construit son trafic organique sur le long terme"
+  ]
+}

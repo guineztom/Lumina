@@ -1,0 +1,34 @@
+{
+  "id": "stockimg-ai",
+  "name": "Stockimg AI",
+  "tagline": "Générez des images stock, illustrations et visuels sur mesure avec l'IA.",
+  "category": "image-gen",
+  "sector": [
+    "image-design"
+  ],
+  "priceDetails": "Gratuit (5 img/mois) / 19 $/mois (Starter) / 29 $/mois (Premium)",
+  "priceType": "Freemium",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/stockimg.ai",
+  "url": "#",
+  "tags": [
+    "Génération image",
+    "Stock photo",
+    "Illustrations"
+  ],
+  "description": "Stockimg AI génère des images dans de nombreux styles : photo réaliste, illustration, icône, poster, couverture de livre, maquette UI. Très utile pour les entrepreneurs qui ont besoin de visuels variés sans abonnement à des banques d'images ou contrat avec un illustrateur.",
+  "features": [
+    "12+ catégories d'images (stock, illus, UI, poster...)",
+    "Génération par prompt texte en français",
+    "Suppression d'arrière-plan intégrée",
+    "Upscaling haute résolution",
+    "Droits commerciaux inclus"
+  ],
+  "useCases": [
+    "Blogueur qui a besoin d'images d'illustration uniques pour ses articles",
+    "Vendeur e-commerce qui veut des photos produits stylisées",
+    "Créateur qui veut des couvertures de contenu cohérentes"
+  ]
+}

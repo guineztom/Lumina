@@ -1,0 +1,34 @@
+{
+  "id": "logoai",
+  "name": "LogoAI",
+  "tagline": "Un logo IA minimaliste et élégant en quelques clics.",
+  "category": "branding",
+  "sector": [
+    "image-design"
+  ],
+  "priceDetails": "À partir de 29 $ (logo seul) — packs jusqu'à 199 $",
+  "priceType": "Payant",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/logoai.com",
+  "url": "#",
+  "tags": [
+    "Logo",
+    "Minimaliste",
+    "Paiement unique"
+  ],
+  "description": "LogoAI propose une approche épurée de la création de logo : saisissez votre nom, votre secteur et votre style, et l'IA génère des propositions au rendu professionnel. Les logos sont disponibles immédiatement en haute résolution pour tous les formats d'utilisation.",
+  "features": [
+    "Génération de logos en style vectoriel",
+    "Styles variés (minimaliste, moderne, vintage, tech)",
+    "Export SVG et PNG sans fond",
+    "Déclinaisons couleurs incluses",
+    "Animateur de logo (GIF/vidéo)"
+  ],
+  "useCases": [
+    "Créateur de contenu qui veut une identité simple et reconnaissable",
+    "Restaurateur ou artisan qui veut un logo pour ses réseaux",
+    "Porteur de projet qui teste sa marque avant d'investir dans un graphiste"
+  ]
+}

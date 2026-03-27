@@ -1,0 +1,34 @@
+{
+  "id": "kaiber",
+  "name": "Kaiber",
+  "tagline": "Transformez vos photos ou musiques en œuvres d'art animées avec l'IA.",
+  "category": "video-gen",
+  "sector": [
+    "video-audio"
+  ],
+  "priceDetails": "Gratuit (limité) / 10 $/mois (Explorer) / 25 $/mois (Pro)",
+  "priceType": "Freemium",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/kaiber.ai",
+  "url": "#",
+  "tags": [
+    "Vidéo artistique",
+    "Animation IA",
+    "Musique"
+  ],
+  "description": "Kaiber génère des vidéos artistiques époustouflantes à partir de photos, de musique ou de prompts texte. Très prisé par les artistes, musiciens et créateurs de contenu pour ses effets visuels uniques. Parfait pour les intros, clips musicaux et visuels de marque.",
+  "features": [
+    "Transformation photo → vidéo animée stylisée",
+    "Synchronisation musique → animation",
+    "Styles visuels variés (abstrait, réaliste, anime...)",
+    "Flux vidéo continus",
+    "Contrôle de la cohérence visuelle"
+  ],
+  "useCases": [
+    "Musicien qui veut un clip vidéo sans budget production",
+    "Artiste qui crée des contenus visuels uniques",
+    "Créateur qui veut des visuels animés pour sa chaîne YouTube"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "writerzen",
+  "name": "WriterZen",
+  "tagline": "Découvrez des mots-clés à fort potentiel et créez du contenu optimisé.",
+  "category": "seo-writing",
+  "sector": [
+    "redaction-seo"
+  ],
+  "priceDetails": "À partir de 23 $/mois (Basic)",
+  "priceType": "Payant",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/writerzen.net",
+  "url": "#",
+  "tags": [
+    "Mots-clés",
+    "Cluster SEO",
+    "Rédaction"
+  ],
+  "description": "WriterZen est un outil de recherche de mots-clés et de création de contenu SEO. Sa force : le Golden Filter qui identifie automatiquement les mots-clés les plus faciles à ranker avec le meilleur potentiel de trafic. Combiné à son éditeur IA, il couvre tout le workflow SEO.",
+  "features": [
+    "Recherche de mots-clés avec Golden Filter",
+    "Cartographie de clusters sémantiques",
+    "Éditeur de contenu assisté par IA",
+    "Analyse de la concurrence",
+    "Plagiat checker intégré"
+  ],
+  "useCases": [
+    "Créateur de site de niche qui cherche des mots-clés peu compétitifs",
+    "Blogueur qui veut construire une stratégie sémantique complète",
+    "Indépendant qui veut trouver des sujets rentables avant de rédiger"
+  ]
+}

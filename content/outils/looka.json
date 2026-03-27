@@ -1,0 +1,34 @@
+{
+  "id": "looka",
+  "name": "Looka",
+  "tagline": "Créez un logo professionnel et une identité visuelle complète avec l'IA.",
+  "category": "branding",
+  "sector": [
+    "image-design"
+  ],
+  "priceDetails": "Logo unique : 20 $ / Brand Kit : 96 $/an",
+  "priceType": "Payant",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/looka.com",
+  "url": "#",
+  "tags": [
+    "Logo",
+    "Identité visuelle",
+    "Branding"
+  ],
+  "description": "Looka génère des dizaines de propositions de logos basées sur votre secteur, vos couleurs préférées et votre style. Vous choisissez, personnalisez, puis téléchargez en haute résolution. Le Brand Kit inclut carte de visite, signature email, favicon et templates réseaux sociaux.",
+  "features": [
+    "Génération illimitée de logos IA",
+    "Personnalisation complète (couleurs, typos, icônes)",
+    "Téléchargement en SVG, PNG, PDF haute résolution",
+    "Brand Kit complet (cartes, réseaux, emails)",
+    "Accès illimité aux révisions"
+  ],
+  "useCases": [
+    "Auto-entrepreneur qui lance son activité et a besoin d'un logo rapidement",
+    "Freelance qui veut professionnaliser son image de marque",
+    "Porteur de projet qui teste une identité visuelle avant de payer un designer"
+  ]
+}

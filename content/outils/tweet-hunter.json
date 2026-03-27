@@ -1,0 +1,34 @@
+{
+  "id": "tweet-hunter",
+  "name": "Tweet Hunter",
+  "tagline": "Automatisez votre croissance sur X (Twitter) avec l'IA.",
+  "category": "social-media",
+  "sector": [
+    "reseaux-sociaux"
+  ],
+  "priceDetails": "49 $/mois (Basic) / 99 $/mois (Pro) — essai gratuit 7 jours",
+  "priceType": "Payant",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/tweethunter.io",
+  "url": "#",
+  "tags": [
+    "Twitter / X",
+    "Croissance",
+    "Automatisation"
+  ],
+  "description": "Tweet Hunter est conçu pour les créateurs et entrepreneurs qui veulent bâtir une audience sur X rapidement. Il génère des tweets et threads, programme les publications, automatise l'engagement et dispose d'une base de données de tweets viraux pour s'inspirer.",
+  "features": [
+    "Génération de tweets et threads par IA",
+    "Base de données de 2M+ tweets viraux",
+    "Planificateur et auto-retweet",
+    "CRM pour gérer ses DMs et contacts",
+    "Automatisation de l'engagement"
+  ],
+  "useCases": [
+    "Créateur de contenu qui veut percer sur X",
+    "Entrepreneur qui partage son parcours en public",
+    "Expert qui veut devenir une référence dans sa niche"
+  ]
+}

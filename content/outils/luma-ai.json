@@ -1,0 +1,35 @@
+{
+  "id": "luma-ai",
+  "name": "Luma AI",
+  "tagline": "Créez des modèles 3D et des vidéos IA depuis votre smartphone.",
+  "category": "3d-video",
+  "sector": [
+    "image-design",
+    "video-audio"
+  ],
+  "priceDetails": "Gratuit (usage limité) / Plans Pro disponibles",
+  "priceType": "Freemium",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/lumalabs.ai",
+  "url": "#",
+  "tags": [
+    "3D",
+    "Vidéo IA",
+    "Scan 3D"
+  ],
+  "description": "Luma AI utilise la technologie NeRF pour créer des modèles 3D photoréalistes depuis une vidéo tournée avec un smartphone. Son outil Dream Machine génère aussi des vidéos courtes à partir de texte ou d'images. Idéal pour les présentations immersives de produits.",
+  "features": [
+    "Scan 3D depuis vidéo smartphone (NeRF)",
+    "Générateur de vidéos IA (Dream Machine)",
+    "Rendu photoréaliste haute qualité",
+    "Export pour AR/VR et web",
+    "Intégration dans des apps 3D"
+  ],
+  "useCases": [
+    "E-commerçant qui veut une vue 3D de ses produits",
+    "Agent immobilier qui crée des visites virtuelles",
+    "Créateur qui génère des vidéos courtes stylisées"
+  ]
+}

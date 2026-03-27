@@ -1,0 +1,34 @@
+{
+  "id": "predis-ai",
+  "name": "Predis.ai",
+  "tagline": "Générez des posts visuels et des vidéos pour les réseaux en secondes.",
+  "category": "social-media",
+  "sector": [
+    "reseaux-sociaux"
+  ],
+  "priceDetails": "Gratuit (5 posts/mois) / 29 $/mois (Solo) / 59 $/mois (Starter)",
+  "priceType": "Freemium",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/predis.ai",
+  "url": "#",
+  "tags": [
+    "Instagram",
+    "Contenu visuel",
+    "Carousels"
+  ],
+  "description": "Predis.ai génère automatiquement des visuels, des carousels et des vidéos courtes pour les réseaux sociaux à partir d'un simple texte ou d'une URL. Ses templates sont pensés pour l'engagement et la conversion sur Instagram et LinkedIn.",
+  "features": [
+    "Génération de visuels et carousels IA",
+    "Création de Reels et vidéos courtes",
+    "Analyse des posts concurrents",
+    "Planificateur de publications intégré",
+    "Hashtags suggérés automatiquement"
+  ],
+  "useCases": [
+    "Entrepreneur qui veut des visuels professionnels sans designer",
+    "Infopreneur qui crée des carousels Instagram engageants",
+    "E-commerçant qui automatise ses posts produits"
+  ]
+}

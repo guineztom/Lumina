@@ -1,0 +1,34 @@
+{
+  "id": "longshot-ai",
+  "name": "LongShot AI",
+  "tagline": "Rédigez des contenus longs vérifiés et sourcés avec l'IA.",
+  "category": "seo-writing",
+  "sector": [
+    "redaction-seo"
+  ],
+  "priceDetails": "Gratuit (limité) / 19 $/mois (Pro) / 49 $/mois (Team)",
+  "priceType": "Freemium",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/longshot.ai",
+  "url": "#",
+  "tags": [
+    "Rédaction",
+    "Vérification des faits",
+    "Contenu long"
+  ],
+  "description": "LongShot AI se distingue par sa vérification des faits intégrée — une fonctionnalité rare qui réduit les hallucinations typiques des IA génératives. Idéal pour les contenus qui engagent votre crédibilité : guides experts, études de cas, articles de fond.",
+  "features": [
+    "Vérification des faits en temps réel",
+    "Templates pour 50+ types de contenu",
+    "Génération de FAQ optimisées pour le référencement",
+    "Mode rédaction longue form",
+    "Détecteur de plagiat intégré"
+  ],
+  "useCases": [
+    "Expert ou consultant qui publie des contenus qui engagent sa crédibilité",
+    "Formateur qui crée des guides et ressources détaillées",
+    "Indépendant qui veut produire du contenu factuel et sourcé"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "validator-ai",
+  "name": "Validator AI",
+  "tagline": "Faites challenger votre idée de business par l'IA avant d'investir.",
+  "category": "business-planning",
+  "sector": [
+    "business-marketing"
+  ],
+  "priceDetails": "Gratuit (basique) — plans payants disponibles",
+  "priceType": "Freemium",
+  "badge": "",
+  "badgeLabel": "",
+  "apiReady": false,
+  "logo": "https://logo.clearbit.com/validator.ai",
+  "url": "#",
+  "tags": [
+    "Validation",
+    "Business idea",
+    "Analyse"
+  ],
+  "description": "Validator AI analyse votre idée de startup ou de business et retourne une évaluation détaillée : forces, faiblesses, concurrence potentielle, taille de marché estimée et recommandations actionnables. Un moyen rapide de challenger son idée avant d'y investir du temps et de l'argent.",
+  "features": [
+    "Évaluation détaillée de l'idée en quelques secondes",
+    "Analyse des forces et faiblesses",
+    "Identification de la concurrence potentielle",
+    "Estimation du marché potentiel",
+    "Recommandations actionnables"
+  ],
+  "useCases": [
+    "Entrepreneur qui veut un regard externe objectif sur son idée",
+    "Développeur qui veut savoir si son projet a du potentiel marché",
+    "Porteur de projet qui prépare un pitch pour des investisseurs"
+  ]
+}
