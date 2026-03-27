@@ -297,7 +297,7 @@ export default defineConfig({
         path: "content/secteurs",
         format: "json",
         fields: [
-          { type: "string", name: "id", label: "ID", isTitle: true },
+          { type: "string", name: "id", label: "ID", isTitle: true, required: true},
           { type: "string", name: "label", label: "Label menu" },
           { type: "string", name: "headline", label: "Titre de la page" },
           { type: "string", name: "sub", label: "Description", ui: { component: "textarea" } },
