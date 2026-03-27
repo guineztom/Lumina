@@ -2,7 +2,7 @@ import { defineConfig } from "tinacms";
 
 // ============================================================
 // TINA CMS — Configuration Lumina AI
-// Repo : guineztom/Lumina2
+// Repo : guineztom/Lumina
 // ============================================================
 
 export default defineConfig({
